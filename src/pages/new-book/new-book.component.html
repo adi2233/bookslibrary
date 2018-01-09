@@ -1,0 +1,45 @@
+<form [formGroup]="createNewBookForm">
+    <div class="form-group required">
+        <label class='control-label'>Book Title</label>
+        <input type="text" class="form-control" formControlName="title"
+               placeholder="Book Title"
+               (keyup)="onKey($event)" (change)="checkIfNotExist($event)">
+    </div>
+    <div class="error-div"
+         *ngIf="createNewBookForm.controls.title.hasError('required') && createNewBookForm.controls.title.touched">
+        <span class="error-message">Book title is required</span>
+    </div>
+    <div *ngIf="invalidTitle" class="error-color">
+        Title already exists
+    </div>
+
+    <div class="form-group required">
+        <label class='control-label'>Book Author</label>
+        <input type="text" class="form-control" formControlName="author" placeholder="Book Author">
+    </div>
+    <div class="error-div"
+         *ngIf="createNewBookForm.controls.author.hasError('required') && createNewBookForm.controls.author.touched">
+        <span class="error-message">Book Author is required</span>
+    </div>
+
+    <div class="form-group required">
+        <label class='control-label'>Book Date</label>
+        <input type="date" class="form-control" formControlName="date">
+    </div>
+    <div class="error-div"
+         *ngIf="createNewBookForm.controls.date.hasError('required') && createNewBookForm.controls.date.touched">
+        <span class="error-message">Book Date is not valid</span>
+    </div>
+
+    <div class="form-group">
+        <label>Book Image</label>
+        <input type="file" (change)="onFileChange($event)" #fileInput>
+    </div>
+
+    <input type="hidden" formControlName="image">
+
+    <button type="submit" class="btn btn-primary" [disabled]="!createNewBookForm.valid"
+            (click)="createNewBook(createNewBookForm.value)">
+        Create
+    </button>
+</form>

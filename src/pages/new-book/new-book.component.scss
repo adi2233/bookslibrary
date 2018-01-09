@@ -1,0 +1,24 @@
+form {
+  width: 30%;
+  margin: 0 auto;
+
+  .error-div {
+    margin-bottom: 11px;
+
+    .error-message {
+      color: #FF0000;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+  }
+
+  .error-color {
+    color: #FF0000;
+    margin-bottom: 11px;
+  }
+}
+
+.form-group.required .control-label:after {
+  content: "*";
+  color: #FF0000;
+}

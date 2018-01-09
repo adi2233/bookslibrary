@@ -1,0 +1,36 @@
+.books-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .book-container {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    margin: 1vw;
+    width: calc(20vw) !important;
+
+    .image-container {
+      display: inline-flex;
+      margin: 0;
+      width: calc(20vw) !important;
+      height: calc(20vw) !important;
+    }
+
+    .details-container {
+      width: 100%;
+      color: #000000;
+      text-align: center;
+      height: auto !important;
+
+      h1 {
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+
